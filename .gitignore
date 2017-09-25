@@ -115,7 +115,7 @@ client/src/
 # Build ignore
 .babelrc
 .eslintrc
-.postcss.config.js
-.webpack.config.js
+postcss.config.js
+webpack.config.js
 
 # End of https://www.gitignore.io/api/git,node,sass,macos,composer,wordpress
