@@ -111,6 +111,7 @@ typings/
 
 # Webpack Source
 client/src/
+*.js.map
 
 # Build ignore
 .babelrc
