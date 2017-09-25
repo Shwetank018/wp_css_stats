@@ -30,7 +30,7 @@ class Css_Stats_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		delete_option('css_stats_filepath');
 	}
 
 }

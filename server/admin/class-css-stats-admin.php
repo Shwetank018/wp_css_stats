@@ -97,16 +97,18 @@ class Css_Stats_Admin {
 		 */
 		wp_enqueue_script( $this->plugin_name . '-common', PLUGIN_DIR . 'client/dist/commons.js', array(), $this->version, true );
 		wp_enqueue_script( $this->plugin_name, PLUGIN_DIR . 'client/dist/admin.bundle.js', array(), $this->version, true );
-		
-		$css_stats = [
-			'url' => get_stylesheet_directory_uri(),
-			'path' => get_stylesheet_directory(),
-			'files' => glob(get_stylesheet_directory() . '/dist/*.css'),
-		];
+
+		$css_stats = array();
+		$css_stats['url'] = get_stylesheet_directory_uri();
+		$css_stats['path'] = get_stylesheet_directory();
+		$css_stats['defaultFilepath'] = get_option('css_stats_filepath');
+		$css_stats['files'] = glob(get_stylesheet_directory() . $css_stats['defaultFilepath']);
+		$css_stats['ajaxurl'] = admin_url( 'admin-ajax.php' );
+		$css_stats['nonce'] = wp_create_nonce('css_stats_nonce');
+		$css_stats['action'] = 'get_files';
 
 		wp_localize_script( $this->plugin_name, 'css_stats', $css_stats);
 				
-
 	}
 
 	/**
@@ -135,5 +137,14 @@ class Css_Stats_Admin {
 	{
 			// this is the admin page markup
 			require_once plugin_dir_path( __FILE__ ). 'partials/css-stats-admin-display.php';
+	}
+
+	public function get_files() {
+		if ( !wp_verify_nonce( $_POST['nonce'], "css_stats_nonce")) {
+			exit("No naughty business please");
+		}
+		$filepath = $_POST['filepath'];
+		wp_send_json_success(['message' => 'we here']);
+	  die();
 	}
 }

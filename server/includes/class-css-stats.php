@@ -147,11 +147,11 @@ class Css_Stats {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
-		// Add our TXN Report item to the menu
-        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_menu' );
+		// Add our CSS Stats item to the menu
+    $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_menu' );
 
-        // This handles the form action to create and download the report
-        $this->loader->add_action( 'admin_post_run_report', $plugin_admin,'run_report' );
+    //
+    $this->loader->add_action('wp_ajax_get_files', $plugin_admin, 'get_files', 1);
 
 	}
 
