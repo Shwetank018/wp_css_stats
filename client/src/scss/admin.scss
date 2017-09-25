@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:700|Fira+Sans:700');
+// typography
+$font: 'Fira Mono', 'Fira Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
+  Helvetica, Arial, 'Lucida Grande', sans-serif;
+// colors
+$primary-dark: #23272c;
+$primary-med: #8e99a8;
+$primary-light: #f3f4f6;
+// sizes
+$border-size: 0.3125em;
+
+@keyframes ROTATE_REFRESH {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+body.toplevel_page_css-stats {
+  background: $primary-light;
+}
+.css-stats-header {
+  font-family: $font;
+  font-weight: bold;
+  color: $primary-dark;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 32px);
+
+  &__title {
+    display: inline-block;
+    border: $border-size solid $primary-dark;
+    padding: 0.675em 1.25em;
+    margin: 1.25em 0 0.25em;
+    font-size: 1.5em;
+    box-shadow: 12px 12px 0 0 $primary-med;
+    line-height: 1;
+  }
+
+  &__refresh {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: all 0.25s ease-in;
+
+    &:hover {
+      transform: rotate(30deg);
+    }
+
+    &:active, &:focus {
+      outline: none;
+    }
+
+    &--loading {
+      animation: ROTATE_REFRESH 1.5s 1;
+    }
+
+    & svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+.css-stats-output {
+  width: calc(100% - 32px);
+  box-shadow: 12px 12px 0 0 $primary-med;
+  margin: 2.5em 0;
+  padding: 0;
+
+  font-family: $font;
+  font-weight: bold;
+  color: $primary-dark;
+
+  &__row {
+    display: flex;
+    border: $border-size solid $primary-dark;
+    border-top: none;
+
+    &--header {
+      background-color: $primary-dark;
+      color: $primary-light;
+      border-top: $border-size solid $primary-dark;
+    }
+
+    & > * {
+      flex-basis: 23.75em;
+      padding: 1em 0 1em 1.5em;
+      line-height: 1;
+      border-right: $border-size solid $primary-dark;
+    }
+
+    & > *:last-child {
+      flex: 1;
+      border: none;
+    }
+  }
+}

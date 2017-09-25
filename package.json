@@ -1,0 +1,44 @@
+{
+  "name": "css-stats",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)",
+  "main": "admin.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack -p",
+    "eslint": "./node_modules/.bin/eslint"
+  },
+  "keywords": [],
+  "author": "William King",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "compression-webpack-plugin": "^1.0.0",
+    "css-loader": "^0.28.1",
+    "cssnano": "^3.10.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.2.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "postcss-scss": "^1.0.2",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.17.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.5.1",
+    "webpack-bundle-analyzer": "^2.9.0"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "parker": "0.0.10"
+  }
+}
