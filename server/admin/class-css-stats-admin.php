@@ -98,16 +98,7 @@ class Css_Stats_Admin {
 		wp_enqueue_script( $this->plugin_name . '-common', PLUGIN_DIR . 'client/dist/commons.js', array(), $this->version, true );
 		wp_enqueue_script( $this->plugin_name, PLUGIN_DIR . 'client/dist/admin.bundle.js', array(), $this->version, true );
 
-		$css_stats = array();
-		$css_stats['url'] = get_stylesheet_directory_uri();
-		$css_stats['path'] = get_stylesheet_directory();
-		$css_stats['defaultFilepath'] = get_option('css_stats_filepath');
-		$css_stats['files'] = glob(get_stylesheet_directory() . $css_stats['defaultFilepath']);
-		$css_stats['ajaxurl'] = admin_url( 'admin-ajax.php' );
-		$css_stats['nonce'] = wp_create_nonce('css_stats_nonce');
-		$css_stats['action'] = 'get_files';
-
-		wp_localize_script( $this->plugin_name, 'css_stats', $css_stats);
+		wp_localize_script( $this->plugin_name, 'css_stats', $this->get_vars);
 				
 	}
 
@@ -144,7 +135,24 @@ class Css_Stats_Admin {
 			exit("No naughty business please");
 		}
 		$filepath = $_POST['filepath'];
+		update_option('css_stats', $filepath);
+		$data = array();
 		wp_send_json_success(['message' => 'we here']);
 	  die();
 	}
+
+	public function get_vars($filepath) {
+		if (!$filepath) { $filepath = get_option('css_stats_filepath'); }
+    $css_stats = array();
+    $css_stats['data']['files'] = array();
+    $files = glob(get_stylesheet_directory() . $filepath);
+    foreach ($files as $file) {
+      $css_stats['data']['files'] = array_push(str_replace(get_stylesheet_directory(), get_stylesheet_directory_uri(), $file));
+    }
+    $css_stats['data']['filepath'] = $filepath;
+    $css_stats['ajaxurl'] = admin_url( 'admin-ajax.php' );
+    $css_stats['nonce'] = wp_create_nonce('css_stats_nonce');
+    $css_stats['action'] = 'get_files';
+    return $css_stats;
+}
 }

@@ -45,16 +45,15 @@ const buildTable = (table, data) => {
 };
 // async call to fetch contents of css files return from php glob function
 // runs the result through parker and build table with that data
-async function fetchCss(options) {
-  const data = await Promise.all(
-    options.files.map(async (file) => {
-      const fileUrl = file.substr(options.path.length);
-      const response = await fetch(options.url + fileUrl);
+async function fetchCss(data) {
+  const css = await Promise.all(
+    data.files.map(async (file) => {
+      const response = await fetch(file);
       const cssData = await response.text();
       return cssData;
     }),
   );
-  const stats = parker.run(data.join(' '));
+  const stats = parker.run(css.join(' '));
   buildTable(dataTable, stats);
   return data;
 }
@@ -66,7 +65,7 @@ refreshBtn.addEventListener('click', () => {
   const filepath = input.value;
   const xhr = new XMLHttpRequest();
 
-  xhr.open('POST', css_stats.ajaxurl);
+  xhr.open('POST', `${css_stats.ajaxurl}?action=${css_stats.action}`);
   xhr.onload = () => {
     if (xhr.status === 200) {
       refreshBtn.classList.remove(refreshClass);
@@ -79,7 +78,6 @@ refreshBtn.addEventListener('click', () => {
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(
     JSON.stringify({
-      action: css_stats.action,
       nonce: css_stats.nonce,
       filepath,
     }),
