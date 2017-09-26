@@ -4,8 +4,7 @@
   "engines": {
     "node": ">=4.2.4"
   },
-  "description":
-    "[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)",
+  "description": "[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)",
   "main": "admin.js",
   "scripts": {
     "start": "webpack --watch",
@@ -39,8 +38,7 @@
     "sass-loader": "^6.0.5",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
-    "webpack": "^2.5.1",
-    "webpack-bundle-analyzer": "^2.9.0"
+    "webpack": "^2.5.1"
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
