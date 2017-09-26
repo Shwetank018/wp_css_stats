@@ -130,6 +130,21 @@ class Css_Stats_Admin {
 			require_once plugin_dir_path( __FILE__ ). 'partials/css-stats-admin-display.php';
 	}
 
+	private function glob_recursive($pattern, $flags = 0) {
+		$files = glob($pattern, $flags);
+		foreach (glob(dirname($pattern).'/*', GLOB_ONLYDIR|GLOB_NOSORT) as $dir) {
+			$files = array_merge($files, $this->glob_recursive($dir.'/'.basename($pattern), $flags));
+		}
+		return $files;
+	}
+
+	private function replace_directory_with_uri($files, $data = array()) {
+		foreach ($files as $file) {
+			array_push($data, str_replace(get_stylesheet_directory(), get_stylesheet_directory_uri(), $file));
+		}
+		return $data;
+	}
+
 	public function get_files() {
 		if ( !wp_verify_nonce( $_POST['nonce'], "css_stats_nonce")) {
 			exit("No naughty business please");
@@ -137,15 +152,14 @@ class Css_Stats_Admin {
 		$filepath = $_POST['filepath'];
 		update_option('css_stats_filepath', $filepath);
 		$data = array();
-		$files = glob(get_stylesheet_directory() . $filepath);
-    foreach ($files as $file) {
-			 array_push($data, str_replace(get_stylesheet_directory(), get_stylesheet_directory_uri(), $file));
-    }
+
+		$files = $this->glob_recursive(get_stylesheet_directory() . $filepath);
+		$data = $this->replace_directory_with_uri($files);
 		wp_send_json_success(['files' => $data]);
 	  die();
 	}
 
-	public function get_vars($filepath = false) {
+	private function get_vars($filepath = false) {
 		if (!$filepath) { $filepath = get_option('css_stats_filepath'); }
     $css_stats = array();
     $css_stats['data']['files'] = array();
@@ -158,5 +172,5 @@ class Css_Stats_Admin {
     $css_stats['nonce'] = wp_create_nonce('css_stats_nonce');
     $css_stats['action'] = 'get_files';
     return $css_stats;
-}
+	}
 }

@@ -53,7 +53,7 @@ async function fetchCss(data) {
       return cssData;
     }),
   );
-  const stats = parker.run(css.join(' '));
+  const stats = parker.run(css);
   buildTable(dataTable, stats);
   return data;
 }
