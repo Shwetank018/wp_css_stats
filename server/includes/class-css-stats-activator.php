@@ -30,7 +30,7 @@ class Css_Stats_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-
+		add_option('css_stats_filepath', '/style.css');
 	}
 
 }
