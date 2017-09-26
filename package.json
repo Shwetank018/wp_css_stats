@@ -6,16 +6,20 @@
   },
   "description":
     "[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wking-io/wp_css_stats.git"
+  },
   "main": "admin.js",
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack -p",
-    "eslint": "./node_modules/.bin/eslint",
+    "test": "./node_modules/.bin/eslint client/src/js/*.js",
     "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "author": "William King",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.26.0",
@@ -45,5 +49,9 @@
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
     "parker": "0.0.10"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/wking-io/wp_css_stats/issues"
+  },
+  "homepage": "https://github.com/wking-io/wp_css_stats#readme"
 }
