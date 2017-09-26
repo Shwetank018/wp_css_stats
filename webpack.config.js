@@ -2,7 +2,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // Plugin Config
 const extractCommons = new webpack.optimize.CommonsChunkPlugin({
@@ -71,12 +70,7 @@ const config = {
       },
     ],
   },
-  plugins: [
-    new webpack.NamedModulesPlugin(),
-    new BundleAnalyzerPlugin(),
-    extractCommons,
-    extractCSS,
-  ],
+  plugins: [new webpack.NamedModulesPlugin(), extractCommons, extractCSS],
 };
 
 module.exports = config;
