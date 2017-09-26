@@ -27,7 +27,7 @@ body.toplevel_page_css-stats {
   color: $primary-dark;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin: 1.875em 0 0.375em;
   width: calc(100% - 32px);
 
@@ -43,6 +43,12 @@ body.toplevel_page_css-stats {
   &__filepath {
     width: 32em;
     margin-right: 1em;
+  }
+
+  &__filepath__input {
+    display: block;
+    width: 100%;
+    margin-top: 0.5em;
     border: $border-size solid $primary-med;
 
     &:focus,
@@ -72,7 +78,7 @@ body.toplevel_page_css-stats {
     }
 
     &--loading {
-      animation: ROTATE_REFRESH 1.5s 1;
+      animation: ROTATE_REFRESH 0.75s 1;
     }
 
     & svg {
