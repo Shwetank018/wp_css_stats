@@ -32,7 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 /** The plugin filepath */
 // keeping this in case we decide that we want to save the csvs to a tmp folder
-define('PLUGIN_DIR', plugin_dir_url(__FILE__));
+define('CSS_STATS_PLUGIN_DIR', plugin_dir_url(__FILE__));
 
 /**
  * The code that runs during plugin activation.

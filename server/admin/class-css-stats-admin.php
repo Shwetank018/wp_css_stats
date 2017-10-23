@@ -73,7 +73,7 @@ class Css_Stats_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, PLUGIN_DIR . 'client/dist/admin.bundle.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, CSS_STATS_PLUGIN_DIR . 'client/dist/admin.bundle.css', array(), $this->version, 'all' );
 
 	}
 
@@ -95,8 +95,8 @@ class Css_Stats_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		wp_enqueue_script( $this->plugin_name . '-common', PLUGIN_DIR . 'client/dist/commons.js', array(), $this->version, true );
-		wp_enqueue_script( $this->plugin_name, PLUGIN_DIR . 'client/dist/admin.bundle.js', array(), $this->version, true );
+		wp_enqueue_script( $this->plugin_name . '-common', CSS_STATS_PLUGIN_DIR . 'client/dist/commons.js', array(), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, CSS_STATS_PLUGIN_DIR . 'client/dist/admin.bundle.js', array(), $this->version, true );
 
 		wp_localize_script( $this->plugin_name, 'css_stats', $this->get_vars());
 				

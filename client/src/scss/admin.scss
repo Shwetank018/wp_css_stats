@@ -110,7 +110,7 @@ body.toplevel_page_css-stats {
 
     & > * {
       flex-basis: 23.75em;
-      padding: 1em 0 1em 1.5em;
+      padding: 1em 1.5em;
       line-height: 1;
       border-right: $border-size solid $primary-dark;
     }
@@ -118,6 +118,8 @@ body.toplevel_page_css-stats {
     & > *:last-child {
       flex: 1;
       border: none;
+      word-break: break-word;
+      line-height: 1.4;
     }
   }
 }
