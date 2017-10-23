@@ -121,7 +121,7 @@ wp-content/plugins/hello.php
 /sitemap.xml.gz
 
 # Webpack Build
-dist/
+client/dist/
 
 
 # End of https://www.gitignore.io/api/git,node,sass,macos,composer,wordpress
