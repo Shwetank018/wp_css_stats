@@ -14,7 +14,7 @@
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack -p",
-    "release": "git checkout -B release && webpack -p && git add -f ./client/dist/*.js && git add -f ./client/dist/*.css", 
+    "release": "git checkout -B release && webpack -p && git add -f ./client/dist/* && git add -f ./server && git add -f ./css-stats.php && git add -f uninstall.php && git add -f README.md && git add -f LICENSE.txt && git add -f ./languages",
     "test": "./node_modules/.bin/eslint client/src/js/*.js",
     "prepublishOnly": "npm run build"
   },
