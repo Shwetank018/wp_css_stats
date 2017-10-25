@@ -19,7 +19,7 @@ $border-size: 0.3125em;
 }
 
 body.toplevel_page_css-stats {
-  background: $primary-light;
+  background-color: rgba($primary-light, 0.75);
 }
 .css-stats-header {
   font-family: $font;
@@ -41,7 +41,7 @@ body.toplevel_page_css-stats {
   }
 
   &__filepath {
-    width: 32em;
+    width: 37em;
     margin-right: 1em;
   }
 
@@ -120,6 +120,35 @@ body.toplevel_page_css-stats {
       border: none;
       word-break: break-word;
       line-height: 1.4;
+    }
+  }
+}
+
+.css-stats-info {
+  font-family: $font;
+  margin: 5em 0;
+  width: calc(100% - 32px);
+  max-width: 720px;
+
+  &__heading {
+    color: $primary-dark;
+    font-size: 1.75em;
+    margin: 1em 0 0.75em;
+  }
+
+  &__subheading {
+    color: $primary-med;
+    font-size: 1.25em;
+    line-height: 1.3;
+    margin: 1em 0 0.25em;
+  }
+
+  &__body {
+    color: $primary-dark;
+    line-height: 1.5;
+
+    & > strong {
+      color: $primary-med;
     }
   }
 }

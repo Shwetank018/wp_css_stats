@@ -153,7 +153,7 @@ class Css_Stats_Admin {
 		update_option('css_stats_filepath', $filepath);
 		$data = array();
 
-		$files = $this->glob_recursive(get_stylesheet_directory() . $filepath);
+		$files = $this->glob_recursive(get_stylesheet_directory() . '/' . $filepath);
 		$data = $this->replace_directory_with_uri($files);
 		wp_send_json_success(['files' => $data]);
 	  die();
@@ -162,8 +162,8 @@ class Css_Stats_Admin {
 	private function get_vars($filepath = false) {
 		if (!$filepath) { $filepath = get_option('css_stats_filepath'); }
     $css_stats = array();
-    $css_stats['data']['files'] = array();
-    $files = glob(get_stylesheet_directory() . $filepath);
+		$css_stats['data']['files'] = array();
+    $files = glob(get_stylesheet_directory() . '/' . $filepath);
     foreach ($files as $file) {
       array_push($css_stats['data']['files'], str_replace(get_stylesheet_directory(), get_stylesheet_directory_uri(), $file));
     }

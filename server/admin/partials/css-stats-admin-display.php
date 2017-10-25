@@ -4,7 +4,7 @@
         <h1 class="css-stats-header__title">CSS Stats</h1>
     </div>
     <div class="css-stats-header__filepath">
-        <label for="file-path">Enter the location of your stylesheets below:</label>
+        <label for="file-path">Enter the location of your stylesheets below: <a href="#info">need more info?</a></label>
         <input value="" name="file-path" class="css-stats-header__filepath__input"/>
     </div>
     <button class="css-stats-header__refresh">
@@ -19,4 +19,12 @@
         <div>Metric</div>
         <div>Data</div>
     </div>
+</section>
+<section id="info" class="css-stats-info">
+    <h2 class="css-stats-info__heading">Info:</h2>
+    <h2 class="css-stats-info__subheading">What is the root folder when using the search?</h2>
+    <p class="css-stats-info__body">The search automatically starts from the current theme directory. You can then use a direct path or a much more flexile glob pattern to find the stylesheets you would like to evaluate.</p>
+
+    <h2 class="css-stats-info__subheading">How can I get the stats of all css files in a folder?</h2>
+    <p class="css-stats-info__body">By using the * character you can tell the search to find all files of a certain extension. For example, if all of your css files were in a folder named css the following search value would find all css files in that folder and subfolder: <strong>css/*.css</strong></p>
 </section>
