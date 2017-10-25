@@ -1,5 +1,0 @@
-client/src
-.babelrc
-.eslintrc
-webpack.config.js
-postcss.config.js
