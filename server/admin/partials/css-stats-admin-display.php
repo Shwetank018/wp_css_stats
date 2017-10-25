@@ -21,10 +21,12 @@
     </div>
 </section>
 <section id="info" class="css-stats-info">
-    <h2 class="css-stats-info__heading">Info:</h2>
-    <h2 class="css-stats-info__subheading">What is the root folder when using the search?</h2>
-    <p class="css-stats-info__body">The search automatically starts from the current theme directory. You can then use a direct path or a much more flexile glob pattern to find the stylesheets you would like to evaluate.</p>
-
-    <h2 class="css-stats-info__subheading">How can I get the stats of all css files in a folder?</h2>
-    <p class="css-stats-info__body">By using the * character you can tell the search to find all files of a certain extension. For example, if all of your css files were in a folder named css the following search value would find all css files in that folder and subfolder: <strong>css/*.css</strong></p>
+    <div class="css-stats-info__left">
+        <h2 class="css-stats-info__heading">What is the root folder when using the search?</h2>
+        <p class="css-stats-info__body">The search automatically starts from the current theme directory. You can then use a direct path or a much more flexile glob pattern to find the stylesheets you would like to evaluate.</p>
+    </div>
+    <div class="css-stats-info__right">
+        <h2 class="css-stats-info__heading">How can I get the stats of all css files in a folder?</h2>
+        <p class="css-stats-info__body">By using the * character you can tell the search to find all files of a certain extension. For example, if all of your css files were in a folder named css the following search value would find all css files in that folder and subfolder: <strong>css/*.css</strong></p>
+    </div>
 </section>

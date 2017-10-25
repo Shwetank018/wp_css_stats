@@ -19,7 +19,7 @@ $border-size: 0.3125em;
 }
 
 body.toplevel_page_css-stats {
-  background-color: rgba($primary-light, 0.75);
+  background-color: rgba($primary-light, 0.5);
 }
 .css-stats-header {
   font-family: $font;
@@ -128,19 +128,23 @@ body.toplevel_page_css-stats {
   font-family: $font;
   margin: 5em 0;
   width: calc(100% - 32px);
-  max-width: 720px;
 
-  &__heading {
-    color: $primary-dark;
-    font-size: 1.75em;
-    margin: 1em 0 0.75em;
+  &__left {
+    width: calc(80% - 1.25em);
+    margin-bottom: 2em;
   }
 
-  &__subheading {
-    color: $primary-med;
-    font-size: 1.25em;
-    line-height: 1.3;
-    margin: 1em 0 0.25em;
+  &__right {
+    width: calc(80% - 1.25em);
+  }
+
+  &__heading {
+    color: $primary-light;
+    background-color: $primary-dark;
+    box-shadow: 8px 8px 0 0 $primary-med;
+    font-size: 1em;
+    padding: 0.75em 1.5em;
+    margin: 1em 0 1.75em;
   }
 
   &__body {

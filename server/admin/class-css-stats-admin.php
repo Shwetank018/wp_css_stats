@@ -163,10 +163,8 @@ class Css_Stats_Admin {
 		if (!$filepath) { $filepath = get_option('css_stats_filepath'); }
     $css_stats = array();
 		$css_stats['data']['files'] = array();
-    $files = glob(get_stylesheet_directory() . '/' . $filepath);
-    foreach ($files as $file) {
-      array_push($css_stats['data']['files'], str_replace(get_stylesheet_directory(), get_stylesheet_directory_uri(), $file));
-    }
+    $files = $this->glob_recursive(get_stylesheet_directory() . '/' . $filepath);
+		$css_stats['data']['files'] = $this->replace_directory_with_uri($files);
     $css_stats['data']['filepath'] = $filepath;
     $css_stats['ajaxurl'] = admin_url( 'admin-ajax.php' );
     $css_stats['nonce'] = wp_create_nonce('css_stats_nonce');
