@@ -108,7 +108,7 @@ class Css_Stats_Admin {
 		* @since 1.0.0
 		*/
 	public function add_admin_menu(){
-			add_menu_page(
+			return add_menu_page(
 					'CSS Stats',
 					'CSS Stats',
 					'manage_options',
@@ -117,6 +117,17 @@ class Css_Stats_Admin {
 					'dashicons-media-code',
 					'50.4' // position order
 			);
+	}
+
+	/**
+		* Adds the TXN Report item to the admin menu.
+		*
+		* @since 1.1.0
+		*/
+	public function init_admin_menu(){
+			$admin_hook = $this->add_admin_menu();
+			add_action('admin_print_styles-' . $admin_hook, array($this, 'enqueue_styles'));
+			add_action('admin_print_scripts-' . $admin_hook, array($this, 'enqueue_scripts'));
 	}
 
 	/**
