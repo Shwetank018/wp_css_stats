@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS FONTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <style>
+    p{
+        font-family: cursive;
+         font-size: 78px 
+         line-height: 34.3em;
+         font-weight: bold;
+         }
+    </style>
+</head>
+<body>
+    <H4>CSS FONTS</H4>
+    <P>Lets play with fonts it is very exciting</P>
+</body>
+</html>
